@@ -1,0 +1,61 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">API Cloud</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bộ API
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/translate/gioithieu">Google translate API</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phần mềm
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/huong-dan/intellij">IntellIJ idea</a></li>
+                    <li><a href="/huong-dan/vs">VS</a></li>
+                </ul>
+            </li>
+            <li><a href="/webhoctap">Web học tập</a></li>
+            <li><a href="/design">Design</a></li>
+
+
+            <li><a href="/cua-hang">Cửa hàng</a></li>
+            <li><a href="/gioi-thieu">Giới thiệu website</a></li>
+            <li><a href="/dieu-khoan">Điều khoản</a></li>
+
+            <%if(ss!==undefined){%>
+            <li><a href="/nhat-ki">Nhật kí</a></li>
+            <li><a  href="/cua-gai">Cưa gái</a></li>
+            <li><a  href="/tong-hop-18">Tổng hợp 18+</a></li>
+            <%}else{%>
+   
+            <%}%>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cảnh báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tuổi lồn mà muốn vào đây à. Cút</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

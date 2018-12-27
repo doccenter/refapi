@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Giới thiệu google translate</title>
+</head>
+<body>
+<div class="container">
+    <%include menu%>
+
+    <h1>Hướng dẫn sử dụng google translate API</h1>
+
+    <h2>I. Cài đặt</h2>
+    <p>- Gửi 1 request tới: <strong>https://apicloud.herokuapp.com/translate/google?word=go&slang=en&tlang=vi</strong></p>
+    <p>- Trong đó:</p>
+    <p>&nbsp;&nbsp;&nbsp;+ word=go: Thay thế go thành bất cứ từ nào muốn dịch</p>
+    <p>&nbsp;&nbsp;&nbsp;+ slang=en: Thay thế 'en' bằng bất cứ mã ngôn ngữ nào. Xem hộ bố mày <a
+                href="http://webcoban.vn/html/ma-ngon-ngu-language-code-trong-html.html">mã ngôn ngữ</a> nhé. Ở param này có nghĩa là ngôn ngữ nguồn - ngôn ngữ sẽ được dịch sang ngôn ngữ khác </p>
+    <p>&nbsp;&nbsp;&nbsp;+ tlang=vi: Thay thế 'vi' bằng bất cứ mã ngôn ngữ nào. Xem hộ bố mày <a
+                href="http://webcoban.vn/html/ma-ngon-ngu-language-code-trong-html.html">mã ngôn ngữ</a> nhé. Ở param này có nghĩa là ngôn ngữ đích - ngôn ngữ sẽ là nghĩa của ngôn ngữ nguồn được nói ở trên </p>
+
+    <h2>II. Kết quả</h2>
+    <p>- Kết quả trả về như sau: <strong>{"word":"go","mean":"đi","spelling":"ɡəʊ","type":"Verb","audioFile":"http://audio.oxforddictionaries.com/en/mp3/go_gb_1.mp3"}</strong></p>
+    <p>- Đây là 1 chuỗi JSON. Có thể chuyển qua đối tượng JSON để xử lý. Trong đó:</p>
+    <p>&nbsp;&nbsp;&nbsp;+ word: Từ muốn dịch ở ngôn ngữ nguồn</p>
+    <p>&nbsp;&nbsp;&nbsp;+ mean: Nghĩa của nó ở ngôn ngữ đích</p>
+    <p>&nbsp;&nbsp;&nbsp;+ spelling: Cách phát âm của từ ở ngôn ngữ nguồn</p>
+    <p>&nbsp;&nbsp;&nbsp;+ type: Từ loại của từ ở ngôn ngữ nguồn</p>
+    <p>&nbsp;&nbsp;&nbsp;+ audioFile: File để phát âm từ ở ngôn ngữ nguồn.</p>
+    <h3>III. Các chỉ dẫn khác</h3>
+    <p>- Là 1 lập trình viên nên tự tìm hiểu cách gửi request, lấy response và xử lý chuỗi JSON nhé. Địt mẹ t đéo nói nhiều nha. Tự xử đi.</p>
+
+    <h3>IV. Chống chỉ định</h3>
+    <p>- Không nên sử dụng với các trường hợp sau: </p>
+    <p>&nbsp;&nbsp;&nbsp;+ Project lớn: Vì sao lại thế: Cái này tao đang sử dụng license miễn phí từ oxford nên không gửi được nhiều đâu. Khoảng vài nghìn lần thôi.</p>
+    <p>&nbsp;&nbsp;&nbsp;+ Có ý định phá hoại băng thông: Xin lỗi đây là web free nhé. Phá cũng z thôi. Chả mất gì</p>
+    <p>- Mọi ý kiến khác lên phường ý kiến.</p>
+</div>
+</body>
+</html>
