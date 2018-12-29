@@ -40,7 +40,7 @@ router.get('/google', function (req, res, next) {
                         audioFile: audioFile
                     });
                 } catch (e) {
-
+                    return res.send({error: error});
                 }
             }
         });
