@@ -53,9 +53,8 @@ app.get('/dieu-khoan', function (req, res) {
 app.use(function (req, res, next) {
     next(createError(404));
 });
-var server = require('http').createServer(app).listen( process.env.PORT || 5000, function () {
 
-});
+app.listen(process.env.PORT || '3000');
 
 // error handler
 app.use(function (err, req, res, next) {
