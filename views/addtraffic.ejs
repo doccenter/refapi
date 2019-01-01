@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API cloud - cung cấp hệ thống API, tools, ứng dụng tự động hóa</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Click').on('click', function () {
+                var dsURL = $('#ok').val().split('\n');
+                var i = 0;
+                setInterval(function () {
+                    if (i < dsURL.length*5) {
+                        var win = window.open(dsURL[i++%10], '_blank');
+                        win.focus();
+                    }
+                }, 10000);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <%include menu%>
+
+    <h3>Chương trình hỗ trợ tăng traffic cho website</h3>
+        <label for="ok">Mời nhập địa chỉ web sử xuống dòng ở mỗi địa chỉ</label><br>
+        <textarea  id="ok" style="width: 100%;resize: none" rows="30" class="form-control"></textarea>
+        <hr>
+        <input type="button" class="btn btn-primary" id="Click" value="Bắt đầu tiến trình">
+</div>
+</body>
+</html>

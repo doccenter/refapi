@@ -7,6 +7,7 @@ var logger = require('morgan');
 var translate = require('./routes/translate');
 var huongdan = require('./routes/huongdan');
 var cuagai = require('./routes/cuagai');
+var tools = require('./routes/tools');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/translate', translate);
 app.use('/huong-dan', huongdan);
+app.use('/tools', tools);
 
 
 app.get('/', function (req, res) {
