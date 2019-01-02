@@ -5,15 +5,17 @@ router.get('/google', function (req, res, next) {
     var sourceText = req.query.word;
     var sourceLang = req.query.slang;
     var targetLang = req.query.tlang;
+    console.log(sourceText);
     var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="
         + sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURI(sourceText);
     request({
         url: url,
     }, function (error, response, body) {
         if (error) {
-            return res.send({error: error});
+            return res.send({error: error+'bbb'});
         }
-        var mean = JSON.parse(body)[0][0];
+        console.log(body);
+        var mean = JSON.parse(body);
         var options = {
             url: 'https://od-api.oxforddictionaries.com/api/v1/entries/en/' + sourceText,
             headers: {
@@ -25,7 +27,7 @@ router.get('/google', function (req, res, next) {
         //xxin v
         request(options, function (error, response2, body2) {
             if (error) {
-                return res.send({error: error});
+                return res.send({error: error+'xzvzxc'});
             } else {
                 try {
                     var json = JSON.parse(body2);
@@ -40,7 +42,7 @@ router.get('/google', function (req, res, next) {
                         audioFile: audioFile
                     });
                 } catch (e) {
-                    return res.send({error: error});
+                    return res.send({error: error+'zxcvzxcv'});
                 }
             }
         });
@@ -50,6 +52,17 @@ router.get('/google', function (req, res, next) {
 
 router.get('/gioithieu', function (req, res) {
     res.render('gioithieugoogletranslate', {ss: req.session.acc});
+});
+
+router.get('/sproxy', function (req, res) {
+
+    request({'url':req.query.url,
+        'proxy':req.query.proxy}, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+           return res.send('Send to: '+ req.query.url+" with proxy: "+ req.query.proxy);
+        }else
+            return res.send('No '+ req.query.url+" with proxy: "+ req.query.proxy);
+    })
 });
 
 module.exports = router;
