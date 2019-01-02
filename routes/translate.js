@@ -15,7 +15,7 @@ router.get('/google', function (req, res, next) {
             return res.send({error: error+'bbb'});
         }
         console.log(body);
-        var mean = JSON.parse(body);
+        var mean = JSON.parse(body[0][0]);
         var options = {
             url: 'https://od-api.oxforddictionaries.com/api/v1/entries/en/' + sourceText,
             headers: {
