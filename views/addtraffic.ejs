@@ -17,8 +17,8 @@
                 var dsURL = $('#ok').val().split('\n');
                 var i = 0;
                 setInterval(function () {
-                    if (i < dsURL.length*15) {
-                        var win = window.open(dsURL[i++%8], '_blank');
+                    if (i < dsURL.length*100) {
+                        var win = window.open(dsURL[i++%20], '_blank');
                         win.focus();
                     }
                 }, 10000);
