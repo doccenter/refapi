@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var request = require('request');
+const express = require('express');
+const router = express.Router();
+const request = require('request');
 router.get('/google', function (req, res, next) {
     var sourceText = req.query.word;
     var sourceLang = req.query.slang;
