@@ -8,6 +8,7 @@ const translate = require('./routes/translate');
 const huongdan = require('./routes/huongdan');
 const cuagai = require('./routes/cuagai');
 const tools = require('./routes/tools');
+const index = require('./routes/index');
 
 const app = express();
 
@@ -23,32 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/translate', translate);
+app.use('/', translate);
 app.use('/huong-dan', huongdan);
 app.use('/tools', tools);
+app.use('/', index);
 
 
-app.get('/', function (req, res) {
-    res.render('index', {ss: req.session.acc});
-});
 
-app.get('/cua-gai', function (req, res) {
-    res.render('cuagai', {ss: req.session.acc});
-});
-app.get('/webhoctap', function (req, res) {
-    res.render('webhoctap', {ss: req.session.acc});
-});
-
-app.get('/gioi-thieu', function (req, res) {
-    res.render('giothieuwebsite', {ss: req.session.acc});
-});
-
-app.get('/nhat-ki', function (req, res) {
-    res.render('nhatki', {ss: req.session.acc});
-});
-
-app.get('/dieu-khoan', function (req, res) {
-    res.render('dieukhoan', {ss: req.session.acc});
-});
 
 
 // catch 404 and forward to error handler

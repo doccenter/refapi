@@ -20,8 +20,8 @@ router.get('/google', function (req, res, next) {
             url: 'https://od-api.oxforddictionaries.com/api/v1/entries/en/' + sourceText,
             headers: {
                 'Content-Type': 'text/html',
-                'app_id': '282c8a0e',
-                'app_key': 'c980f725deb5b72b477ca647ad678784',
+                'app_id': 'db895322',
+                'app_key': '43f0ca85647144d444eb65dcff43bffb',
             }
         };
         //xxin v

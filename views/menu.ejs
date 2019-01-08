@@ -20,20 +20,41 @@
                 </ul>
             </li>
             <li><a href="/webhoctap">Web học tập</a></li>
-            <li><a href="/design">Design</a></li>
+            <li><a href="/tong-hop-kien-thuc">Tổng hợp kiến thức</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Đọc sách
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/doc-sach/cleancode">Clean code</a></li>
+                </ul>
+            </li>
 
 
-            <li><a href="/cua-hang">Cửa hàng</a></li>
-            <li><a href="/gioi-thieu">Giới thiệu website</a></li>
-            <li><a href="/dieu-khoan">Điều khoản</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">About
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/gioi-thieu">Giới thiệu website</a></li>
+                    <li><a href="/dieu-khoan">Điều khoản</a></li>
+                </ul>
+            </li>
 
-            <%if(ss!==undefined){%>
-            <li><a href="/nhat-ki">Nhật kí</a></li>
-            <li><a  href="/cua-gai">Cưa gái</a></li>
-            <li><a  href="/tong-hop-18">Tổng hợp 18+</a></li>
-            <%}else{%>
-   
-            <%}%>
+            <% if(ss !== undefined){ %>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gái gú
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <% if(ss !== undefined){ %>
+                        <li><a href="/nhat-ki">Nhật kí</a></li>
+                        <li><a href="/cua-hang">Cửa hàng người yêu cũ</a></li>
+                        <li><a href="/cua-gai">Bí kiếp cưa gái</a></li>
+                        <li><a href="/tong-hop-18">Tổng hợp 18+</a></li>
+                    <% } %>
+                </ul>
+            </li>
+            <% } %>
+
+
         </ul>
     </div>
 </nav>
