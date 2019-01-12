@@ -6,6 +6,10 @@ router.get('/', function (req, res) {
     res.render('index', {ss: req.session.acc});
 });
 
+router.get('/tong-quan-ngon-ngu', function (req, res) {
+    res.render('tongquanngonngu', {ss: req.session.acc});
+});
+
 router.get('/cua-gai', function (req, res) {
     res.render('cuagai', {ss: req.session.acc});
 });
