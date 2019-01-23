@@ -4,7 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const logger = require('morgan');
-const translate = require('./routes/translate');
+
+const introAPI = require('./routes/introapi');
+const api = require('./routes/api');
+
 const huongdan = require('./routes/huongdan');
 const cuagai = require('./routes/cuagai');
 const tools = require('./routes/tools');
@@ -23,8 +26,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/translate', translate);
-app.use('/', translate);
+app.use('/intro', introAPI);
+app.use('/api', api);
+
 app.use('/huong-dan', huongdan);
 app.use('/tools', tools);
 app.use('/', index);

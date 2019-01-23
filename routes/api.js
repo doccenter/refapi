@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const request = require('request');
-router.get('/google', function (req, res, next) {
+router.get('/google-translate', function (req, res, next) {
     var sourceText = req.query.word;
     var sourceLang = req.query.slang;
     var targetLang = req.query.tlang;
@@ -50,19 +50,19 @@ router.get('/google', function (req, res, next) {
     });
 });
 
-router.get('/gioithieu', function (req, res) {
-    res.render('gioithieugoogletranslate', {ss: req.session.acc});
-});
+router.get('/mp3/{key}', function (req, res) {
+    var key = req.key;
+    var url = "https://mp3.zing.vn/xhr/media/get-source?type=audio&key="+key;
 
-router.get('/sproxy', function (req, res) {
+    request(url, {
+        json: true
+    }, function (err, data) {
+        if (err) throw err;
 
-    request({'url':req.query.url,
-        'proxy':req.query.proxy}, function (error, response, body) {
-        if (!error && response.statusCode === 200) {
-           return res.send('Send to: '+ req.query.url+" with proxy: "+ req.query.proxy);
-        }else
-            return res.send('No '+ req.query.url+" with proxy: "+ req.query.proxy);
+        // the JSON result
+        res.json({'url':'https:'+data.data.source['128']})
     })
 });
+
 
 module.exports = router;
