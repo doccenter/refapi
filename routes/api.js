@@ -52,14 +52,12 @@ router.get('/google-translate', function (req, res, next) {
 });
 
 router.get('/mp3', function (req, res) {
-    var key = req.key;
-    var url = "https://mp3.zing.vn/xhr/media/get-source?type=audio&key="+key;
-
-    xhrRequest(url, {
+    xhrRequest('https://mp3.zing.vn/xhr/media/get-source?type=audio&key='+req.query.key, {
         json: true
     }, function (err, data) {
         if (err) throw err;
         res.send('https:'+data.data.source['128']);
+        // console.log(data);
     });
 });
 
