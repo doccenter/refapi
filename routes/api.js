@@ -58,9 +58,7 @@ router.get('/mp3/{key}', function (req, res) {
         json: true
     }, function (err, data) {
         if (err) throw err;
-
-        // the JSON result
-        res.json({'url':'https:'+data.data.source['128']})
+        res.send('https:'+data.data.source['128']);
     })
 });
 
