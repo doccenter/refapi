@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const request = require('request');
+const xhrRequest = require('xhr-request');
 router.get('/google-translate', function (req, res, next) {
     var sourceText = req.query.word;
     var sourceLang = req.query.slang;
@@ -50,16 +51,16 @@ router.get('/google-translate', function (req, res, next) {
     });
 });
 
-router.get('/mp3', function (req, res) {
+router.get('/mp3/{key}', function (req, res) {
     var key = req.key;
     var url = "https://mp3.zing.vn/xhr/media/get-source?type=audio&key="+key;
 
-    request(url, {
+    xhrRequest(url, {
         json: true
     }, function (err, data) {
         if (err) throw err;
         res.send('https:'+data.data.source['128']);
-    })
+    });
 });
 
 
